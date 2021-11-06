@@ -15,8 +15,15 @@ while True:
     # Show camera footage in a frame
     # cv2.imshow('frame',frame)
 
-    image = np.zeros(frame.shape, np.uint8)
+    # Draw line from top left corner down to right bottom corner
+    # syntax : frame, start coordinates, end coordinates, line colour (BGR), line thickness
+    img = cv2.line(frame, (0,0), (width, height), (255,0,0), 10)
+    # add new line - add this line on image
+    img = cv2.line(img, (0, height), (width,0), (0,255,0), 10)
+    cv2.imshow('frame', img)
 
+    # image = np.zeros(frame.shape, np.uint8)
+    # Display image
     # cv2.imshow('frame', image)
 
     if cv2.waitKey(1) == ord('q'):
